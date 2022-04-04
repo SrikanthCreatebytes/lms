@@ -10,7 +10,7 @@ from .models import Tutorial
 class CRUDTutorialAPiView(APIView):
     """ admin can create video tutorials"""
 
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self, uuid):
         if uuid is None:

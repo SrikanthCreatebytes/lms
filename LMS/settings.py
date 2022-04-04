@@ -137,7 +137,7 @@ REST_FRAMEWORK: {
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT _PERMISSION_CLASSES': [
-        'rest_framework.permissions.AlloAny',
+        'rest_framework.permissions.IsAuthenticated',
 
     ]
 }

@@ -17,7 +17,7 @@ class CRUDUserProfileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        user = validated_data.get('user')
-        if user:
-            user_obj = User.objects.get(id=user.id)
-            return UserProfile.objects.create(user_id=user_obj.id, **validated_data)
+        user_obj = User.objects.create(username=validated_data.get('first_name'), email=validated_data.get('email'),
+                                       is_superuser=validated_data.get('is_admin'),
+                                       password=validated_data.get('password'))
+        return UserProfile.objects.create(user=user_obj, **validated_data)
